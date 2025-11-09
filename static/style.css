@@ -1,0 +1,284 @@
+/* === Background setup === */
+body.bg {
+    min-height: 100vh;
+    background: url("/static/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* === Optional dim overlay for text contrast === */
+body.bg::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);  /* soft dark layer (no blur) */
+    z-index: 0;
+}
+
+/* === Container — clear and elegant === */
+.container {
+    position: relative;
+    z-index: 1;
+    width: 480px;
+    margin: 80px auto;
+    padding: 35px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.4);  /* light transparent white */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #222;
+}
+
+/* === Heading === */
+h1 {
+    margin-bottom: 25px;
+    color: #222;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
+}
+
+/* === Labels === */
+label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #222;
+}
+
+/* === Inputs and Dropdowns === */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #222;
+    background-color: rgba(255, 255, 255, 0.85);
+    outline: none;
+}
+
+input::placeholder {
+    color: #666;
+}
+
+/* === Dropdown placeholders === */
+select:invalid {
+    color: #666;
+}
+
+/* === Button === */
+button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #0056b3;
+    transform: scale(1.03);
+}
+
+/* === Result Box === */
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    animation: fadeIn 0.8s ease-out;
+    color: #222;
+}
+
+.result.normal {
+    background: rgba(40, 167, 69, 0.3);
+    border-left: 5px solid #28a745;
+    animation: glowGreen 2s infinite ease-in-out;
+}
+
+.result.moderate {
+    background: rgba(255, 193, 7, 0.3);
+    border-left: 5px solid #ff9800;
+    animation: glowYellow 2s infinite ease-in-out;
+}
+
+.result.critical {
+    background: rgba(220, 53, 69, 0.3);
+    border-left: 5px solid #dc3545;
+    animation: glowRed 2s infinite ease-in-out;
+}
+
+
+/* === Fade animation === */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* === Glow animation keyframes === */
+@keyframes glowPulse {
+    0% { text-shadow: 0 0 5px rgba(0, 123, 255, 0.4), 0 0 10px rgba(0, 123, 255, 0.2); }
+    50% { text-shadow: 0 0 15px rgba(0, 123, 255, 0.6), 0 0 25px rgba(0, 123, 255, 0.3); }
+    100% { text-shadow: 0 0 5px rgba(0, 123, 255, 0.4), 0 0 10px rgba(0, 123, 255, 0.2); }
+}
+
+/* === Glow animations for result box === */
+@keyframes glowGreen {
+    0% { box-shadow: 0 0 8px rgba(40, 167, 69, 0.5), 0 0 15px rgba(40, 167, 69, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(40, 167, 69, 0.8), 0 0 30px rgba(40, 167, 69, 0.4); }
+    100% { box-shadow: 0 0 8px rgba(40, 167, 69, 0.5), 0 0 15px rgba(40, 167, 69, 0.3); }
+}
+
+@keyframes glowYellow {
+    0% { box-shadow: 0 0 8px rgba(255, 193, 7, 0.5), 0 0 15px rgba(255, 193, 7, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(255, 193, 7, 0.8), 0 0 30px rgba(255, 193, 7, 0.4); }
+    100% { box-shadow: 0 0 8px rgba(255, 193, 7, 0.5), 0 0 15px rgba(255, 193, 7, 0.3); }
+}
+
+@keyframes glowRed {
+    0% { box-shadow: 0 0 8px rgba(220, 53, 69, 0.5), 0 0 15px rgba(220, 53, 69, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(220, 53, 69, 0.8), 0 0 30px rgba(220, 53, 69, 0.4); }
+    100% { box-shadow: 0 0 8px rgba(220, 53, 69, 0.5), 0 0 15px rgba(220, 53, 69, 0.3); }
+}
+
+/* === Page Fade Transition === */
+.fade-in {
+    animation: fadeInPage 0.8s ease forwards;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/*body.bg {
+    position: relative;
+    min-height: 100vh;
+    background: url("/static/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Keep your container above the overlay */
+/*.container {
+    position: relative;
+    z-index: 1;
+    width: 480px;
+    margin: 80px auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+
+.container {
+    width: 480px;
+    margin: 80px auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-top: 20px;
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.result.normal {
+    background: #e8f9e8;
+    border-left: 6px solid #28a745;
+    color: #155724;
+}
+
+.result.moderate {
+    background: #fff3cd;
+    border-left: 6px solid #ff9800;
+    color: #856404;
+}
+
+.result.critical {
+    background: #f8d7da;
+    border-left: 6px solid #dc3545;
+    color: #721c24;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-btn:hover {
+    background: #0056b3;
+}
+*/

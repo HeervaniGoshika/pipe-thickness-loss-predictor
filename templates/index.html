@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pipe Thickness Loss Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg">
+    <div class="container fade-in">
+        <h1>Pipe Thickness Loss Predictor</h1>
+        <form action="/predict" method="post">
+            <label>Pipe Size (mm):</label>
+            <input type="number" step="0.01" name="Pipe_Size_mm" required>
+
+            <label>Thickness (mm):</label>
+            <input type="number" step="0.01" name="Thickness_mm" required>
+
+            <label for="Material">Material:</label>
+<select name="Material" required>
+    <option value="" disabled selected>Select Material</option>
+    <option value="Carbon Steel">Carbon Steel</option>
+    <option value="PVC">PVC</option>
+    <option value="HDPE">HDPE</option>
+    <option value="Fiberglass">Fiberglass</option>
+    <option value="Stainless Steel">Stainless Steel</option>
+</select>
+
+<label for="Grade">Grade:</label>
+<select name="Grade" required>
+    <option value="" disabled selected>Select Grade</option>
+    <option value="ASTM A333 Grade 6">ASTM A333 Grade 6</option>
+    <option value="ASTM A106 Grade B">ASTM A106 Grade B</option>
+    <option value="API 5L X52">API 5L X52</option>
+    <option value="API 5L X42">API 5L X42</option>
+    <option value="API 5L X65">API 5L X65</option>
+</select>
+
+
+            <label>Max Pressure (psi):</label>
+            <input type="number" step="0.01" name="Max_Pressure_psi" required>
+
+            <label>Temperature (°C):</label>
+            <input type="number" step="0.01" name="Temperature_C" required>
+
+            <label>Corrosion Impact (%):</label>
+            <input type="number" step="0.01" name="Corrosion_Impact_Percent" required>
+
+            <label>Thickness Loss (mm):</label>
+            <input type="number" step="0.01" name="Thickness_Loss_mm" required>
+
+            <label>Material Loss (%):</label>
+            <input type="number" step="0.01" name="Material_Loss_Percent" required>
+
+            <label>Time (Years):</label>
+            <input type="number" step="1" name="Time_Years" required>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+
+    <script>
+document.querySelector('form').addEventListener('submit', function() {
+    document.querySelector('.container').style.animation = 'fadeOutPage 0.5s ease forwards';
+});
+
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes fadeOutPage {
+    to { opacity: 0; transform: translateY(-10px); }
+}`;
+document.head.appendChild(style);
+</script>
+
+
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predictive Maintenance</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, button { margin: 5px 0; padding: 8px; width: 200px; }
+    .container { max-width: 400px; margin: auto; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Pipe Thickness Loss Predictor</h2>
+
+    # Replace with actual feature inputs 
+    <label>Feature 1:</label><br>
+    <input type="number" id="Feature1" step="any"><br>
+
+    <label>Feature 2:</label><br>
+    <input type="number" id="Feature2" step="any"><br>
+
+    <label>Feature 3:</label><br>
+    <input type="number" id="Feature3" step="any"><br>
+
+    <button onclick="predict()">Predict</button>
+    <p id="output"></p>
+  </div>
+
+  <script>
+    async function predict() {
+      const payload = {
+        Feature1: parseFloat(document.getElementById('Feature1').value),
+        Feature2: parseFloat(document.getElementById('Feature2').value),
+        Feature3: parseFloat(document.getElementById('Feature3').value)
+      };
+
+      const response = await fetch('http://localhost:5000/predict', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      document.getElementById('output').innerText = result.prediction !== undefined ?
+        `Predicted Thickness Loss: ${result.prediction.toFixed(2)}` :
+        `Error: ${result.error}`;
+    }
+  </script>
+</body>
+</html>
+--->

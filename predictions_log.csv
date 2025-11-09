@@ -1,0 +1,6 @@
+Pipe_Size_mm,Thickness_mm,Material,Grade,Max_Pressure_psi,Temperature_C,Corrosion_Impact_Percent,Thickness_Loss_mm,Material_Loss_Percent,Time_Years,Prediction
+800.0,15.48,Carbon Steel,ASTM A333 Grade 6,300.0,75.5,20.5,4.91,31.72,2,Moderate
+1000.0,18.67,PVC,API 5L X52,500.0,75.5,10.0,2.96,28.67,1,Moderate
+1500.0,13.91,Stainless Steel,API 5L X52,100.0,75.4,20.0,2.76,4.0,2,Moderate
+200.0,10.85,HDPE,API 5L X52,306.0,45.0,10.98,0.2,1.6,3,Normal
+1000.0,15.0,Carbon Steel,ASTM A333 Grade 6,350.0,80.0,30.0,4.0,20.0,4,Moderate

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg">
+    <div class="container fade-in">
+        <h1>Prediction Result</h1>
+
+        <div class="result 
+            {% if prediction == 'Normal' %}normal
+            {% elif prediction == 'Moderate' %}moderate
+            {% elif prediction == 'Critical' %}critical
+            {% endif %}">
+            <h2>{{ prediction }}</h2>
+            <p>{{ explanation }}</p>
+        </div>
+
+        <a href="/" class="back-btn">← Back to Home</a>
+    </div>
+</body>
+</html>
